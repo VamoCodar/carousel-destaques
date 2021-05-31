@@ -1,0 +1,254 @@
+body {
+    overflow-x: hidden;
+}
+
+.carousel1 {
+    height: 100vh;
+    min-height: 620px;
+    width: 100%;
+    position: relative;
+
+    .swiper-wrapper {
+        height: 100%;
+    }
+
+
+
+    &__content {
+        height: 100%;
+
+
+
+        picture {
+            z-index: -1;
+            // @include size(100%);
+            // position: absolute;
+
+            // @include inset;
+            // margin: auto;
+
+            img {
+                @include size(100%);
+                position: absolute;
+                @include inset;
+                margin: auto;
+                object-fit: cover;
+                filter: brightness(.8);
+            }
+        }
+
+        >.container {
+            height: 100%;
+        }
+    }
+
+    &__text {
+        display: flex;
+        align-items: center;
+        margin-top: 5vh;
+        height: 100%;
+        color: white;
+        max-width: 900px;
+        position: relative;
+        z-index: 2;
+
+        margin-top: -50px;
+
+
+        h1 {
+            font-size: 2.625rem;
+            margin-bottom: 25px;
+            line-height: 125%;
+
+            @include d(m) {
+                font-size: 2rem;
+            }
+
+        }
+
+        p {
+            line-height: 145%;
+            font-size: 1.125rem;
+
+            @include d(s) {
+                font-size: .875rem;
+            }
+
+        }
+
+        .btn {
+            padding: .75rem 2rem;
+            display: inline-flex;
+            background: rgb(33, 80, 151);
+            border-radius: 4px;
+            margin-top: 25px;
+            color: white;
+            transition: background .2s ease;
+
+            &:hover {
+                background: darken(rgb(33, 80, 151), 5);
+            }
+        }
+    }
+
+    //bullets
+    .swiper-pagination {
+        right: 5vw !important;
+        margin: auto 0 !important;
+        left: initial !important;
+        top: 0;
+        bottom: 0;
+        height: max-content;
+        transform: rotate(90deg) !important;
+
+        span {
+            background: rgb(27, 27, 27);
+            @include size(.625rem);
+        }
+    }
+}
+
+
+// > carousel 2 =====================================
+.carousel2 {
+    position: relative;
+    height: max-content;
+    $altura: 20rem;
+    top: -($altura / 2);
+    z-index: 3;
+    overflow: hidden;
+
+    .container {
+        overflow: hidden;
+        max-width: 1210px;
+        position: relative;
+
+        @include d(m) {
+            overflow: initial;
+            width: 100%;
+        }
+    }
+
+
+
+    &__wrapper {
+        display: flex;
+
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 16.25rem;
+        height: $altura;
+        overflow: hidden;
+        border-radius: 3px;
+
+
+
+
+
+        &[data-hover] {
+            article {
+                transform: translateY(110%);
+
+                @include d(m) {
+                    transform: translateY(0);
+                }
+            }
+
+
+        }
+
+        &.active {
+            article {
+                transform: translateY(0px) !important;
+            }
+        }
+
+        a {
+            @include size(100%);
+            display: flex;
+            align-items: flex-end;
+
+        }
+
+        //imagem fundo
+        >img {
+            @include size(100%);
+            @include bg-props-cover;
+            @include inset;
+            margin: auto;
+            position: absolute;
+            filter: brightness(.8);
+            z-index: -1;
+
+        }
+
+        //texto 
+        article {
+            z-index: 5;
+            display: block;
+            transition: .4s ease-out;
+            transition-property: transform opacity;
+            z-index: 5;
+            position: relative;
+
+
+
+            h2,
+            p {
+                padding: 0 .625rem;
+                color: white;
+
+            }
+
+            h2 {
+                font-size: 1.125rem;
+            }
+
+            p {
+                font-size: .875rem;
+                //LIMITADO
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                margin-bottom: .5rem;
+
+
+            }
+
+        }
+    }
+
+    //botoes ajustes
+    .swiper-button-next,
+    .swiper-button-prev {
+        background: white;
+        @include size(2.5rem);
+        border-radius: 50%;
+
+        @include d(s) {
+            display: none;
+        }
+
+        &:after {
+            font-size: 1.125rem;
+            color: #000;
+        }
+
+        &.swiper-button-disabled {
+            opacity: 0;
+        }
+
+    }
+
+    .swiper-button-next {
+        right: 0 !important;
+    }
+
+
+
+}
